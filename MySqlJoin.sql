@@ -75,14 +75,14 @@ SELECT * FROM serviceInfo;
 SELECT * FROM personalInfo;
 
 /* Получите контактные данные сотрудников (номера телефонов, место жительства) */
-SELECT staff.phone, personalInfo.adress
+SELECT staff.name, staff.phone, personalInfo.adress
 FROM staff
 JOIN personalInfo
 ON staff.id = personalInfo.staff_id;
 
 /* Получите информацию о дате рождения всех холостых сотрудников и их номера
 В данной бд холостых 3 человека */
-SELECT personalInfo.birth_day, staff.phone
+SELECT staff.name, personalInfo.birth_day, staff.phone
 FROM staff
 JOIN personalInfo
 ON staff.id = personalInfo.staff_id
@@ -90,7 +90,7 @@ WHERE personalInfo.maritalStatus IN ('не женат', 'не замужем');
 
 /* Получите информацию обо всех менеджерах компании: дату рождения и номер телефона
 В данной бд менеджеров также 3 человека */
-SELECT personalInfo.birth_day, staff.phone
+SELECT staff.name, personalInfo.birth_day, staff.phone
 FROM staff
 JOIN personalInfo
 ON staff.id = personalInfo.staff_id
